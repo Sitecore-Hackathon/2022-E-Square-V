@@ -35,7 +35,7 @@ The following diagram summerizes the current behaviour verus the new approach wi
 ### New Approach with Sitecore Experience Edge
 
 
-![New One](docs/images/New_Approach_Experience_Edge_Endpoint.png?raw=true "New One")
+![New One](docs/images/New_Approach_Experience_Edge_Endpoints.png?raw=true "New One")
 
 ## Video link
 
