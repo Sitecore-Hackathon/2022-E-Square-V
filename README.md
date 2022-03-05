@@ -27,19 +27,23 @@ The new Foundation Layers in the Mvp-Site solution as below,
 
 The following diagram summerizes the current behaviour verus the new approach with Sitecore Experience Edge.
 
-### Current Approach with JSS Sitecore Layout Service
+### 👉 Current Approach with JSS Sitecore Layout Service
 
 
 ![Existing Approach](docs/images/Current_Working_Behaviour.png?raw=true "Existing Approach")
 
-### New Approach with Sitecore Experience Edge
+### 👉 New Approach with Sitecore Experience Edge
 
 
 ![New One](docs/images/New_Approach_Experience_Edge_Endpointss.png?raw=true "New One")
 
 ## Video link
 
-⟹ [Replace this Video link](#video-link)
+⟹ [Demo Video](#https://youtu.be/tXjt5QIkp7Q)
+
+### Presentation
+
+![PPT](docs/images/SitecoreHackathon_2022.pptx "PPT")
 
 
 
@@ -137,3 +141,4 @@ The following diagram summerizes the current behaviour verus the new approach wi
 1. If the setting **Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint** is set to **false**, then its working by default and uses the JSS Layout Services.
 
 This way we can switch between the Experience Edge End point and JSS Headless Service by this setting 'Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint'.
+
