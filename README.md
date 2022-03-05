@@ -39,11 +39,11 @@ The following diagram summerizes the current behaviour verus the new approach wi
 
 ## Video link
 
-🏆 ⟹ ⟹ [Link to YouTube video demo](https://youtu.be/_VRACU4IBjE)
+🏆 ⟹ ⟹ [Video demo](https://youtu.be/_VRACU4IBjE)
 
 ### Presentation
 
-💾 ⟹ ⟹ [Link to the Presentation ](https://github.com/Sitecore-Hackathon/2022-E-Square-V/blob/main/docs/SitecoreHackathon_2022.pptx)
+💾 ⟹ ⟹ [Presentation Deck ](https://github.com/Sitecore-Hackathon/2022-E-Square-V/blob/main/docs/SitecoreHackathon_2022.pptx)
 
 
 
