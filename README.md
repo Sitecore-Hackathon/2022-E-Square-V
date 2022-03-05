@@ -7,16 +7,9 @@
 ⟹ Best addition to the Sitecore MVP Site
 
 ## Description
-⟹ The Sitecore MVP site an Open Source project and it is based on the Sitecore Headless Rendering SDK and uses Sitecore Layout Service; a headless API end point that provides Sitecore page route data as JSON response. Then this JSON response is used by the default LayoutRequestHandler to render the pages. 
+⟹ This work will introduce some additional Foundation Layers to the Sitecore MVP site that connects with Sitecore Experience Edge to fetch the Layout Response data. The Sitecore Experience Edge is a futuristic API based Service from Sitecore and its replicated and scalable. Currently the Sitecore MVP Site does not offer to use Experience Edge with GraphQL queries to fetch the layout route data of the pages.
 
-The Sitecore Experience Edge is a futuristic API based Service from Sitecore and its replicated and scalable. Currently the Sitecore MVP Site does not offer to use Experience Edge with GraphQL queries to fetch the layout route data of the pages.
-
-If we scaffold the Sitecore JSS app, by default it provides both 
-
-### What was problem solved ?
-
-
-This project will enable the Sitecore MVP Site to connect with Sitecore Experience Edge by means of the CustomRenderingEngineMiddleware and CustomGraphQLEdgeConnector.
+This project will enable the Sitecore MVP Site to connect with Sitecore Experience Edge with the help of the CustomRenderingEngineMiddleware and CustomGraphQLEdgeConnector layers.
 
 
 ### How does this module solve it ?
@@ -87,6 +80,11 @@ The following diagram summerizes the current behaviour verus the new approach wi
     ```
 - It will prompt for the login to sitecore. Login and accept the device verification
 - Wait for the script to complete and open the CM, CD and rendering host sites
+- To Stop the environment again  
+   
+   ```ps1
+   .\down.ps1
+   ```  
 
 ### Configuration
 
@@ -94,15 +92,9 @@ The following diagram summerizes the current behaviour verus the new approach wi
 
 ## Usage instructions
 
-As stated early, This approach uses two layers,
-
-1. CustomRenderingMiddleware - This exposes a CustomLayoutRequestHandler to be configured in the startup.cs
-1. GraphQLEdgeConnector - This layer will make the GraphQLLayoutRequest to the Experience Edge end point to fetch the page route data.
-
-
 ### To make the RenderingEngineMiddleware to use the CustomHttpRequestHandler
 
-- In the startup.cs file of the RenderingHost, we need to comment out the default request handler and configure our customrequesthandler like below.
+- In the startup.cs file of the RenderingHost, we need to comment out the default request handler and configure our customlayoutrequesthandler like below.
 
 ![Startup configuration](docs/images/Startup_Configuration.png?raw=true "Startup configuration")
 
@@ -126,8 +118,22 @@ As stated early, This approach uses two layers,
     }
   }
 ```
-- When the setting **Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint** is set to **true**, the CustomLayoutRequestHandler uses the Sitecore Experience Edge. 
-- When the same is set to **false**, it uses default JSS headless service
+
 
 ## Comments
-If you'd like to make additional comments that is important for your module entry.
+
+### How does it work ?
+
+1. The user visits the Sitecore MVP site
+1. The request will be handled by the RenderingEngineMiddleware in the RenderingHost
+1. As we have registered the CustomLayoutRequestHandler with the middleware, this will be handling the requets
+1. It checks whether the setting **Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint** is set to **true**
+    1. The CustomLayoutRequestHandler will be using the foundation layer CustomGraphQLEdgeConnector to connect with the Experience Edge endpoint.
+    2. The CustomGraphQLEdgeConnector has the below predefined GraphQL query to read the layout response of the given page. It takes site, path and language as the input parameters
+    ![GraphQL Query](docs/images/GraphQLQuery.png?raw=true "GraphQL Query")
+    3. Once the Query is contructed, it uses the GraphQL.Client to make the GraphQL layout request and fetches the layout response 
+    4. Then the response is sent back to the CustomLayoutRequestHandler where it is deserialized into an object of type SitecoreLayoutResponseContent and the SitecoreLayoutResponse is formed
+    5. The RenderingEngineMiddleware uses this LayoutResponse to render the page back
+1. If the setting **Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint** is set to **false**, then its working by default and uses the JSS Layout Services.
+
+This way we can switch between the Experience Edge End point and JSS Headless Service by this setting 'Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint'.
