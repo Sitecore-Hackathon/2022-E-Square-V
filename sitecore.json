@@ -4,11 +4,11 @@
     "src/*/*/*.module.json"
   ],
   "plugins": [
-    "Sitecore.DevEx.Extensibility.Serialization@4.1.1",
-    "Sitecore.DevEx.Extensibility.Publishing@4.1.1"
+    "Sitecore.DevEx.Extensibility.Serialization@4.0.0",
+    "Sitecore.DevEx.Extensibility.Publishing@4.0.0"
   ],
   "serialization": {
-    "defaultMaxRelativeItemPathLength": 120,
+    "defaultMaxRelativeItemPathLength": 100,
     "defaultModuleRelativeSerializationPath": "items",
     "removeOrphansForRoles": true,
     "excludedFields": []
