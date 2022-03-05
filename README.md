@@ -50,7 +50,7 @@ The following diagram summerizes the current behaviour verus the new approach wi
 - Approx 40gb HD space
 - [Okta Developer Account](https://developer.okta.com/signup/)
 
-## Installation instructions
+## 📢 Installation instructions
 
 ### Note
 
@@ -90,7 +90,7 @@ The following diagram summerizes the current behaviour verus the new approach wi
 
 ⟹ No further configuration needed
 
-## Usage instructions
+## 📢 Usage instructions
 
 ### To make the RenderingEngineMiddleware to use the CustomHttpRequestHandler
 
@@ -122,11 +122,11 @@ The following diagram summerizes the current behaviour verus the new approach wi
 
 ## Comments
 
-### How does it work ?
+### ❓ How does it work ?
 
 1. The user visits the Sitecore MVP site
 1. The request will be handled by the RenderingEngineMiddleware in the RenderingHost
-1. As we have registered the CustomLayoutRequestHandler with the middleware, this will be handling the requets
+1. As we have registered the CustomLayoutRequestHandler with the middleware in the Startup.cs, this custom handler will be handling the requests
 1. It checks whether the setting **Foundation:Middleware:EndpointConfiguration:UseExperienceEdgeEndpoint** is set to **true**
     1. The CustomLayoutRequestHandler will be using the foundation layer CustomGraphQLEdgeConnector to connect with the Experience Edge endpoint.
     2. The CustomGraphQLEdgeConnector has the below predefined GraphQL query to read the layout response of the given page. It takes site, path and language as the input parameters
