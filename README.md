@@ -29,7 +29,7 @@ The below two additional foundation layers have been introduced to achieve this.
 
 The new Foundation Layers in the Mvp-Site solution as below,
 
-![Solution Update](docs/images/New_Foundation_Layers.config.png?raw=true "Solution Update")
+![Solution Update](docs/images/New_Foundation_Layer.config.png?raw=true "Solution Update")
 
 
 The following diagram summerizes the current behaviour verus the new approach with Sitecore Experience Edge.
