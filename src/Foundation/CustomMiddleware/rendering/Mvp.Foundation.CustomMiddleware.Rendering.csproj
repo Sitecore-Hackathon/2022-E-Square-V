@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" />
+    <PackageReference Include="Sitecore.LayoutService.Client" />
+    <PackageReference Include="GraphQL.Client" />
+    <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\GraphQLEdgeConnector\rendering\Mvp.Foundation.GraphQLEdgeConnector.Rendering.csproj" />
+  </ItemGroup>
+</Project>
